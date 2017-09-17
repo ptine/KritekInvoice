@@ -18,8 +18,9 @@ services:
         class: AppBundle\Admin\InvoiceDetailAdmin
         arguments: [~, AppBundle\Entity\InvoiceDetail, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: InvoiceDetail }
+            - { name: sonata.admin, manager_type: orm, label: InvoiceDetail, show_in_dashboard: false }
         public: true
+        
     #admin.invoice_row:
     #    class: AppBundle\Admin\InvoiceDetailAdmin
     #    tags:
