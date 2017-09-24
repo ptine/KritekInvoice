@@ -20,11 +20,25 @@ class InvoiceDetailAdmin extends AbstractAdmin
         $formMapper
             /*->add('InvoiceId', 'sonata_type_model_hidden')*/
             ->add('Description', 'text')
-            ->add('Quantity', 'integer')
-            ->add('Amount')
-            ->add('Vat')
-            ->add('TotalAmount')
+            ->add('Quantity', 'integer', [
+                'attr' => ["class" => "qty"]
+            ])
+            ->add('Amount', null, [
+                'attr' => ["class" => "qty"]
+            ])
+            ->add('Vat', null, [
+                'attr' => ["class" => "qty"]
+            ])
+            ->add('TotalAmount', null,array(
+                'attr' => ["class" => "qty"],
+                'read_only' => true,
+                'disabled'  => false,
+                ))
         ;
+
+        
+           
+        
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -40,7 +54,7 @@ class InvoiceDetailAdmin extends AbstractAdmin
         ->add('Amount')
         ->add('Vat')
         ->add('TotalAmount')
-    ;
+        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -54,4 +68,7 @@ class InvoiceDetailAdmin extends AbstractAdmin
         ->add('TotalAmount')
     ;
     }
+
+    
+    
 }
